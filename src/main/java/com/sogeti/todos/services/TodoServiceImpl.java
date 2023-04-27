@@ -17,13 +17,13 @@ public class TodoServiceImpl implements TodoService{
     public TodoServiceImpl(TodoRepository todoRepository) { this.todoRepository = todoRepository; }
 
     /**
-     * Lister toutes les todos
+     * return all todos
      */
     @Override
     public List<Todo> getAllTodos() { return todoRepository.findAll(); }
 
     /**
-     * Obtenir une to-do via son ID
+     * Return to-do by id
      */
     @Override
     public Todo getTodoById(Long todoId) throws TodoNotFoundException {
@@ -32,7 +32,7 @@ public class TodoServiceImpl implements TodoService{
     }
 
     /**
-     * Ajouter une to-do
+     * To add a new to-do
      */
     @Override
     public Todo addTodo(@NotNull Todo todo) {
@@ -41,7 +41,7 @@ public class TodoServiceImpl implements TodoService{
     }
 
     /**
-     * Permet de cahnger le status done d'une to-do
+     * To change done state of a to-do
      */
     @Override
     @Transactional
@@ -52,7 +52,7 @@ public class TodoServiceImpl implements TodoService{
     }
 
     /**
-     * Supprimer une To-do
+     * To delete a to-do
      */
     @Override
     public Optional<Todo> deleteTodo(Long todoId) throws TodoNotFoundException {
@@ -65,7 +65,7 @@ public class TodoServiceImpl implements TodoService{
     }
 
     /**
-     * Permet d'éditer le titre et la description d'un to-do
+     * To edit title and description of a to-do
      */
     @Override
     public Todo editTodo(Long todoId, String newTitle, String newDescription) throws TodoNotFoundException {
